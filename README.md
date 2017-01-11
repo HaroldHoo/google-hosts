@@ -4,5 +4,14 @@
 [doodle-story]: https://www.google.com.hk/search?q=%E5%9C%A3%E8%AF%9E%E8%8A%82
 
 ## 更新 hosts
-    本脚本支持linux/mac系统
-    其他系统如Windows，或更多其他问题，请参考：[hosts](https://github.com/racaljk/hosts)
+1. 本脚本支持linux/mac系统：
+Via curl: 
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/HaroldHoo/google-hosts/master/hosts.update.sh)"
+```
+
+Via wget:
+```
+sh -c "$(wget https://raw.githubusercontent.com/HaroldHoo/google-hosts/master/hosts.update.sh -O -)"
+```
+2. 其他系统如Windows，或更多其他问题，请参考：[hosts](https://github.com/racaljk/hosts)
