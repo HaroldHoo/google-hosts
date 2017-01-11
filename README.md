@@ -5,13 +5,15 @@
 
 ## 更新 hosts
 1. 本脚本支持linux/mac系统：
+
 Via curl: 
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/HaroldHoo/google-hosts/master/hosts.update.sh)"
+curl -fsSL 'https://raw.githubusercontent.com/HaroldHoo/google-hosts/master/hosts.update.sh' | bash
 ```
 
 Via wget:
 ```
-sh -c "$(wget https://raw.githubusercontent.com/HaroldHoo/google-hosts/master/hosts.update.sh -O -)"
+wget 'https://raw.githubusercontent.com/HaroldHoo/google-hosts/master/hosts.update.sh' -O - | bash
 ```
+
 2. 其他系统如Windows，或更多其他问题，请参考：[hosts](https://github.com/racaljk/hosts)
