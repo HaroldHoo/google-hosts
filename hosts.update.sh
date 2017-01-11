@@ -30,4 +30,4 @@ fi
 echo -e "\033[33m正在更新，请稍后...\033[0m"
 sudo sh -c "curl -sSL 'https://raw.githubusercontent.com/racaljk/hosts/master/hosts' >> /etc/hosts";
 
-echo -e "\033[32m更新完成！畅想Google吧：https://www.google.com/ncr\033[0m"
+echo -e "\033[32m更新完成！重启浏览器畅想Google吧：https://www.google.com/ncr\033[0m"
