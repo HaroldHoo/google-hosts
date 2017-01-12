@@ -16,7 +16,7 @@ hosts_file_start_line=`cat /etc/hosts | sed -n '/# Copyright (c) [0-9]*-[0-9]*, 
 hosts_file_end_line=`cat /etc/hosts | sed -n '/# Modified hosts end/=' | tail -n 1 | xargs printf "%d"`;
 #echo $hosts_file_end_line
 
-if test $hosts_file_start_line > 1; then
+if [[ $hosts_file_start_line > 1 ]]; then
 	echo -e "\033[33m除相关hosts内容被替换外，其他自定义hosts将被保留\033[0m"
 	if [ $darwin = 1 ]; then
 		sudo sh -c "sed -i '' '$hosts_file_start_line,$hosts_file_end_line d' /etc/hosts";
