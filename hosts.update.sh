@@ -7,24 +7,24 @@
 os=`uname -s`;
 darwin=0;
 if [ $os = "Darwin" ]; then
-	darwin=1;
+    darwin=1;
 fi
 
 hosts_file_start_line=`cat /etc/hosts | sed -n '/# Copyright (c) [0-9]*-[0-9]*, racaljk./=' | head -n 1 | xargs printf "%d"`;
-
-#echo $hosts_file_start_line
 hosts_file_end_line=`cat /etc/hosts | sed -n '/# Modified hosts end/=' | tail -n 1 | xargs printf "%d"`;
-#echo $hosts_file_end_line
+if [ -z $hosts_file_end_line ]; then
+    hosts_file_end_line=`cat /etc/hosts | sed -n '/# Modified Hosts End/=' | tail -n 1 | xargs printf "%d"`;
+fi
 
 if [[ $hosts_file_start_line > 1 ]]; then
-	echo -e "\033[33m除相关hosts内容被替换外，其他自定义hosts将被保留\033[0m"
-	if [ $darwin = 1 ]; then
-		sudo sh -c "sed -i '' '$hosts_file_start_line,$hosts_file_end_line d' /etc/hosts";
-	else
-		sudo sh -c "sed -i '$hosts_file_start_line,$hosts_file_end_line d' /etc/hosts";
-	fi
+    echo -e "\033[33m除相关hosts内容被替换外，其他自定义hosts将被保留\033[0m"
+    if [ $darwin = 1 ]; then
+        sudo sh -c "sed -i '' '$hosts_file_start_line,$hosts_file_end_line d' /etc/hosts";
+    else
+        sudo sh -c "sed -i '$hosts_file_start_line,$hosts_file_end_line d' /etc/hosts";
+    fi
 else
-	echo -e "\033[33m您是第一次更新hosts，原hosts内容将被保留\033[0m"
+    echo -e "\033[33m您是第一次更新hosts，原hosts内容将被保留\033[0m"
 fi
 
 echo -e "\033[33m正在更新，请稍后...\033[0m"
